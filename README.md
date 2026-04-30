@@ -36,23 +36,38 @@ Let’s understand this like a real-life story, Imagine you are writing code and
 
 Step-by-step flow:
 
-You make changes to your code
-Example: fixing a bug or adding a feature
-You push the code to Git
-Git stores your code safely in the cloud
-Git notifies Jenkins
-This happens automatically using something called a webhook
-Think of it like: "Hey Jenkins, new code just arrived!"
-Jenkins starts working
-Jenkins pulls the latest code
-Builds the application (like compiling or packaging)
-Runs tests (to make sure nothing is broken)
-Jenkins creates a deployable artifact
-Usually a Docker image (a packaged version of your app)
-Jenkins sends the app to Kubernetes
-Kubernetes is responsible for running your app
-Kubernetes deploys the application
-It makes your app live and accessible
+1️⃣ Code Change
+You make changes to your code (bug fix / new feature)
+
+2️⃣ Push to Git
+You push the updated code to the Git repository
+
+3️⃣ Webhook Trigger
+Git sends a webhook notification to Jenkins
+
+4️⃣ Pipeline Starts
+Jenkins automatically triggers the pipeline
+
+5️⃣ Code Checkout
+Jenkins pulls the latest code from Git
+
+6️⃣ Build Stage
+Application is built (compile / package)
+
+7️⃣ Test Stage
+Tests are executed to validate the build
+
+8️⃣ Artifact Creation
+A Docker image is created for the application
+
+9️⃣ Push to Registry
+Docker image is pushed to container registry
+
+🔟 Deploy to Kubernetes
+Jenkins applies Kubernetes manifests
+
+1️⃣1️⃣ Application Runs
+Kubernetes deploys and runs the application
 
 In one line: Code push → Jenkins builds → Kubernetes deploys 
 
@@ -152,15 +167,6 @@ kubectl get nodes
 ```
 
 If it shows nodes → you're good 
-
----
-
-### 7️⃣ Basic Internet + Browser
-
-You’ll need:
-
-* Internet connection
-* Browser to access Jenkins
 
 ---
 
